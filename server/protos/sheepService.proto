@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package sheep;
+service sheepService{
+rpc makeSheepService(stream sheepServiceRequest)returns (stream sheepServiceResponse){}
+}
+
+message sheepServiceRequest{
+String type=1;
+String location=2;
+unint32 tagNumber=3;
+String userName=4;
+String password=5;
+}
+
+message sheepServiceResponse{
+
+String type=1;
+String location=2;
+unint32 tagNunber=3;
+String userName=4;
+String password=5;
+
+}
