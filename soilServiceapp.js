@@ -1,6 +1,6 @@
 var readline = require('readline')
 var readlineSync = require('readlineSync')
-var PROTO_PATH =_dirname + '/protos/chat.protos'
+var PROTO_PATH =_dirname + '/protos/soilService.protos'
 var gprc = require('@grpc/gprc-js')
 var protoLoader =require('@grpc/proto-Loader')
 
@@ -11,8 +11,8 @@ var packageDefinition = protoLoader.loadSync(
 
 
 var packageDefinition = protoLoader.loadSync(PROTO_PATH)
-var movies = grpc.loadPackageDefinition(packageDefinition).soil_proto;
-var client = new chat_proto.chatService('localhost:40000', grpc.credentials.createInsecure());
+var movies = grpc.loadPackageDefinition(packageDefinition).soilService_proto;
+var client = new SoilService_proto.chatService('localhost:40000', grpc.credentials.createInsecure());
 
 var name=readlineSync.question("location of soil?")
 var call=client.sendMessage();
